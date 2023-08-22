@@ -9,7 +9,7 @@ import RootState from '../../../interfaces/RootState';
 import { PERFORM_LOGIN, VERIFICATION_IN_PROGRESS, VERIFY_CODE } from '../../../redux/auth/actions';
 // import { SIGNED_IN, VERIFICATION_IN_PROGRESS } from '@src/redux/auth/actions';
 
-type Inputs = {
+export type Inputs = {
 	emailAddress: string;
 	phoneNumber: string;
 	password: string;

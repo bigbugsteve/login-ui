@@ -1,6 +1,7 @@
 import { put } from 'redux-saga/effects';
 import { SET_LOADING } from '../ui/actions';
-import Service from '../../api/api';
+// import Service from '../../api/api';
+import { Inputs } from '../../pages/login/components/LoginForm';
 // import { useContext } from 'react';
 
 export const PERFORM_LOGIN = 'PERFORM_LOGIN';
@@ -9,13 +10,13 @@ export const SIGNED_IN = 'SIGNED_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const VERIFICATION_IN_PROGRESS = 'VERIFICATION_IN_PROGRESS';
 
-export function* performLogin(data) {
+export function* performLogin(data: Record<'val', Partial<Inputs>>) {
 	yield put({ type: SET_LOADING, val: true });
 
 	const { val: payload } = data;
 
 	try {
-		const response = yield fetch('/2factor/login', {
+		const response: Response = yield fetch('/2factor/login', {
 			method: 'POST',
 			body: JSON.stringify(payload),
 		});
@@ -23,18 +24,20 @@ export function* performLogin(data) {
 		if (response.ok) {
 			yield put({ type: VERIFICATION_IN_PROGRESS, val: true });
 		} else {
-			throw new Error('Hiba történt a szerver oldalon.');
+			throw new Error(`${response?.status} Something went wrong...`);
 		}
-	} catch (error) {}
+	} catch (error) {
+		console.log('file: actions.ts:31 ~ function*performLogin ~ error:', error);
+	}
 
 	yield put({ type: SET_LOADING, val: false });
 }
 
-export function* verifyCode(data) {
+export function* verifyCode(data: Record<'val', Partial<Inputs>>) {
 	yield put({ type: SET_LOADING, val: true });
 	const { val: payload } = data;
 	try {
-		const response = yield fetch('/2factor/verify', {
+		const response: Response = yield fetch('/2factor/verify', {
 			method: 'POST',
 			body: JSON.stringify(payload),
 		});
@@ -48,7 +51,9 @@ export function* verifyCode(data) {
 		} else {
 			throw new Error(`${response?.status} Something went wrong...`);
 		}
-	} catch (error) {}
+	} catch (error) {
+		console.log('file: actions.ts:56 ~ function*verifyCode ~ error:', error);
+	}
 	yield put({ type: SET_LOADING, val: false });
 }
 
