@@ -12,8 +12,14 @@ type Auth = {
 	verifyLogin: boolean;
 };
 
+export interface ErrorType {
+	dictionaryObject: string;
+	error: number;
+}
+
 interface RootState {
 	auth: Auth;
+	error: { errorObject: ErrorType };
 	ui: typeof initialUiState;
 }
 

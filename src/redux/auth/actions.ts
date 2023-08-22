@@ -47,8 +47,22 @@ export function* verifyCode(data: Record<'val', Partial<Inputs>>) {
 			sessionStorage.setItem('token', token as string);
 			yield put({ type: SIGNED_IN, val: true });
 		} else if (response.status === 401) {
+			yield put({
+				type: 'SET_ERROR_OBJECT',
+				val: {
+					dictionaryObject: 'verify_errors',
+					errCode: response?.status,
+				},
+			});
 			yield put({ type: SIGNED_IN, val: false });
 		} else {
+			yield put({
+				type: 'SET_ERROR_OBJECT',
+				val: {
+					dictionaryObject: 'verify_errors',
+					errCode: response?.status,
+				},
+			});
 			throw new Error(`${response?.status} Something went wrong...`);
 		}
 	} catch (error) {

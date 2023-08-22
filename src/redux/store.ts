@@ -3,10 +3,12 @@ import { AnyAction, Dispatch, Middleware, applyMiddleware, combineReducers, comp
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
 import authReducer from './auth/reducer';
+import errReducer from './error/reducer';
 
 const sagaMiddleWare = createSagaMiddleware();
 const reducer = combineReducers({
 	auth: authReducer,
+	error: errReducer,
 });
 
 declare global {

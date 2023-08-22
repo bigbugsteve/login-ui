@@ -1,0 +1,1 @@
+export const SET_ERROR_OBJECT = 'SET_ERROR_OBJECT';
