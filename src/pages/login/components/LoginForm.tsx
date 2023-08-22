@@ -6,7 +6,7 @@ import { Controller, useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import RootState from '../../../interfaces/RootState';
-import { PERFORM_LOGIN, VERIFY_CODE } from '../../../redux/auth/actions';
+import { PERFORM_LOGIN, VERIFICATION_IN_PROGRESS, VERIFY_CODE } from '../../../redux/auth/actions';
 // import { SIGNED_IN, VERIFICATION_IN_PROGRESS } from '@src/redux/auth/actions';
 
 type Inputs = {
@@ -46,6 +46,7 @@ const LoginForm = () => {
 	};
 
 	const securityExpired = useCallback(() => {
+		dispatchAction({ type: VERIFICATION_IN_PROGRESS, val: false });
 		reset();
 	}, []);
 

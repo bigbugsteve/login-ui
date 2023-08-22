@@ -43,13 +43,10 @@ export function* verifyCode(data) {
 			const token = response.headers.get('Authorization');
 			sessionStorage.setItem('token', token as string);
 			yield put({ type: SIGNED_IN, val: true });
-			// const responseData = yield response.json();
-			// yield put({ type: VERIFY_CODE, val: { ...payload, code: responseData } });
-			// yield put({ type: VERIFICATION_IN_PROGRESS, val: true });
 		} else if (response.status === 401) {
 			yield put({ type: SIGNED_IN, val: false });
 		} else {
-			throw new Error('Hiba történt a szerver oldalon.');
+			throw new Error(`${response?.status} Something went wrong...`);
 		}
 	} catch (error) {}
 	yield put({ type: SET_LOADING, val: false });
