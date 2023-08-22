@@ -2,11 +2,17 @@
     "login": {
         "title": "Login screen",
         "subtitle": "Log into your account",
-        "contact": "Contact"
+        "contact": "Contact",
+        "login": "Login",
+        "email_address": "Email address",
+        "phone_number": "Phone number"
     },
     "contact": {
         "contact_info": "Contact info",
         "back": "back",
         "email": "Email"
+    },
+    "validations": {
+        "required": "This field is required"
     }
 }

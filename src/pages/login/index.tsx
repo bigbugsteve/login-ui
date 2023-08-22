@@ -2,6 +2,7 @@ import { Box, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
 
 const Login = () => {
 	const { t } = useTranslation('common');
@@ -102,7 +103,9 @@ const Login = () => {
 						<Typography variant="h2" sx={{ margin: '1rem', fontSize: '1.5rem' }}>
 							{t('login.subtitle')}
 						</Typography>
-						<Box sx={{ justifySelf: 'center' }}>{/* <EndUserLogin /> */}</Box>
+						<Box sx={{ justifySelf: 'center' }}>
+							<LoginForm />
+						</Box>
 						<Box></Box>
 					</Grid>
 				</Grid>
