@@ -1,0 +1,7 @@
+.btn__primary {
+	background-color: $primary-color-4 !important;
+	color: $primary-text !important;
+	&:hover {
+		background-color: lighten($primary-color-4, 10) !important;
+	}
+}

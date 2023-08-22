@@ -1,0 +1,12 @@
+.layout {
+	min-height: 100vh;
+	background: rgb(102, 3, 90);
+
+	background: linear-gradient(
+		45deg,
+		rgba(102, 3, 90, 1) 0%,
+		rgba(200, 8, 136, 1) 33%,
+		rgba(98, 86, 174, 1) 67%,
+		rgba(0, 163, 213, 1) 100%
+	);
+}

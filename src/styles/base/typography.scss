@@ -1,0 +1,139 @@
+@font-face {
+	font-family: 'InterstateRegular';
+	src:
+		local('InterstateRegular'),
+		url('../../public//fonts/Interstate-Regular-Font.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'InterstateBlack';
+	src:
+		local('InterstateBlack'),
+		url('../../public//fonts/Interstate-Black-Regular.otf') format('truetype');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'InterstateBlack', Roboto !important;
+	margin-top: 0;
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+body {
+	font-family: 'InterstateRegular', Roboto !important;
+}
+p {
+	margin: 10px 0 0 0;
+
+	&:first-child {
+		margin: 0;
+	}
+}
+
+h1 {
+	font-size: 36px;
+	line-height: 48px;
+}
+
+h2 {
+	font-size: 30px;
+	line-height: 36px;
+}
+
+h3 {
+	font-size: 24px;
+	line-height: 32px;
+}
+
+h4 {
+	font-size: 18px;
+	line-height: 24px;
+}
+
+h5 {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+h6 {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.bold-text {
+	font-weight: 700;
+}
+
+.typography--inline {
+	display: flex;
+	flex-wrap: wrap;
+
+	* {
+		margin-top: auto;
+		margin-right: 15px;
+	}
+}
+
+.typography-card {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 10px;
+	}
+}
+
+blockquote {
+	font-size: 13px;
+	font-style: italic;
+	border-left: 3px solid $primary-color-1;
+	margin-bottom: 0;
+	padding-left: 10px;
+}
+
+.highlight {
+	background-color: $primary-color-1;
+	color: #ffffff;
+}
+
+.red-text {
+	color: #ad4444;
+}
+
+.page-title {
+	font-weight: 500;
+	text-transform: capitalize;
+	font-size: 20px;
+
+	&:last-child {
+		margin-bottom: 30px;
+	}
+
+	&.page-title--not-last {
+		margin-top: 20px;
+	}
+}
+
+.page-subhead {
+	margin-bottom: 20px;
+
+	&.subhead {
+		font-size: 14px;
+		opacity: 0.7;
+	}
+}
+
+::selection {
+	color: #ffffff;
+	background: $primary-color-1;
+}
+
+.row {
+	margin: 0;
+}

@@ -9,9 +9,9 @@ import { router } from './router';
 i18next.init(i18nextConfig);
 
 export const App = (): React.ReactElement => {
-  return (
-    <I18nextProvider i18n={i18next}>
-      <RouterProvider router={router} />
-    </I18nextProvider>
-  );
+	return (
+		<I18nextProvider i18n={i18next}>
+			<RouterProvider router={router} />
+		</I18nextProvider>
+	);
 };

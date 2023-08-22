@@ -1,3 +1,33 @@
 {
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 120,
+    "insertPragma": false,
+    "jsxBracketSameLine": false,
+    "semi": true,
+    "tabWidth": 4,
+    "useTabs": true,
+    "quoteProps": "as-needed",
+    "arrowParens": "always",
+    "proseWrap": "always",
+    "htmlWhitespaceSensitivity": "ignore",
+    "endOfLine": "auto",
+    "requirePragma": false,
+    "overrides": [
+        {
+            "files": "*.scss",
+            "options": {
+                "singleQuote": true,
+                "overrides": [
+                    {
+                        "files": "*.scss",
+                        "options": {
+                            "parser": "scss",
+                            "proseWrap": "always"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
 }

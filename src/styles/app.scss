@@ -1,4 +1,12 @@
+// settings
+@import 'settings/variables.scss';
+// base
+@import 'base/typography.scss';
 // common
 @import 'common/animation.scss', 'common/box-sizing.scss', 'common/normalize.scss';
 // layout
-@import 'layout/layout.scss'
+@import 'layout/layout.scss';
+// pages
+@import 'pages/login.scss';
+// components
+@import 'components/btn.scss';
