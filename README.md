@@ -1,27 +1,17 @@
-# React + TypeScript + Vite
+# Simple 2FA Login in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This UI represents some of the technologies I use every day.
 
-Currently, two official plugins are available:
+## Requirements
+- [Node ^v16.16.0](https://nodejs.org/en) 
+- [GIT](https://git-scm.com/)
+- Any IDE
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to use
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Clone this repository, install the dependencies and launch the application
+ ```js
+   "git clone https://github.com/bigbugsteve/login-ui.git"
+   "cd login-ui"
+   "npm install"
+  ```
