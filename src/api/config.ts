@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
 
 export const axiosRequestConfiguration: AxiosRequestConfig = {
-	baseURL: 'localhost',
+	baseURL: import.meta.env.BASE_URL,
 };

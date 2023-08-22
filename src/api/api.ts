@@ -4,15 +4,15 @@ export default class Service {
 	/**
 	 * AUTHORIZATION
 	 */
-	static performLogin = (body) =>
-		axiosInstance
-			.post('2factor/login', body)
-			.then((res) => {
-				return res;
-			})
-			.catch((err) => {
-				throw err;
-			});
+	static performLogin = (body) => {
+		return axiosInstance.post('2factor/login', body);
+		// .then((res) => {
+		// 	return res;
+		// })
+		// .catch((err) => {
+		// 	throw err;
+		// });
+	};
 	static verifyCode = (body) =>
 		axiosInstance
 			.post('2factor/verify', body)
@@ -23,3 +23,6 @@ export default class Service {
 				throw err;
 			});
 }
+
+// http://localhost:5173/2factor/login
+// http://localhost:5173/2factor/login

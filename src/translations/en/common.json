@@ -5,7 +5,10 @@
         "contact": "Contact",
         "login": "Login",
         "email_address": "Email address",
-        "phone_number": "Phone number"
+        "password": "Password",
+        "phone_number": "Phone number",
+        "verification_code": "Verification code",
+        "code_expires": "Code expires"
     },
     "contact": {
         "contact_info": "Contact info",

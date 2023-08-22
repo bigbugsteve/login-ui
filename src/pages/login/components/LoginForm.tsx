@@ -2,29 +2,28 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Countdown from 'react-countdown';
 import { Box, Button, Grid, TextField } from '@mui/material';
-// import SelectLanguage from './SelectLanguage';
 import { Controller, useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import RootState from '../../../interfaces/RootState';
-import { PERFORM_LOGIN } from '../../../redux/auth/actions';
+import { PERFORM_LOGIN, VERIFY_CODE } from '../../../redux/auth/actions';
 // import { SIGNED_IN, VERIFICATION_IN_PROGRESS } from '@src/redux/auth/actions';
 
 type Inputs = {
 	emailAddress: string;
 	phoneNumber: string;
+	password: string;
 	verificationCode: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const LoginForm = () => {
 	const [counterElement, setCounterElement] = useState<Array<JSX.Element>>();
-
 	const verifyLogin = useSelector((state: RootState) => state?.auth?.verifyLogin);
-	const signedIn = useSelector((state: RootState) => state?.auth?.signedIn);
-	console.log('file: LoginForm.tsx:25 ~ LoginForm ~ signedIn:', signedIn);
 
-	const navigate = useNavigate();
+	const signedIn = useSelector((state: RootState) => state?.auth?.signedIn);
+
+	// const navigate = useNavigate();
 	const dispatchAction = useDispatch();
 	const { t } = useTranslation('common');
 
@@ -39,16 +38,22 @@ const LoginForm = () => {
 		}
 	};
 	const performVerification = (data: Inputs) => {
-		dispatchAction({ type: PERFORM_LOGIN, val: data });
+		dispatchAction({ type: VERIFY_CODE, val: data });
+		console.log('file: LoginForm.tsx:39 ~ performVerification ~ data:', data);
 	};
-
 	const performLogin = (data: Omit<Inputs, 'verificationCode'>) => {
-		console.log('file: LoginForm.tsx:63 ~ performLogin ~ data:', data);
+		dispatchAction({ type: PERFORM_LOGIN, val: data });
 	};
 
 	const securityExpired = useCallback(() => {
 		reset();
 	}, []);
+
+	useEffect(() => {
+		if (signedIn === true) {
+			// navigate('/contact');
+		}
+	}, [signedIn]);
 
 	useEffect(() => {
 		if (verifyLogin === true) {
@@ -68,8 +73,8 @@ const LoginForm = () => {
 	// gabor.nagy@ewmgroup.com
 
 	useEffect(() => {
-		setValue('emailAddress', 'gabor.nagy@ewmgroup.com');
-		setValue('phoneNumber', '36304924948');
+		setValue('emailAddress', 'johndoe@example.com');
+		setValue('password', '123456');
 	}, []);
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
@@ -101,7 +106,7 @@ const LoginForm = () => {
 					</Grid>
 					<Grid item sx={{ width: '100%', margin: '0.5rem 0' }}>
 						<Controller
-							name="phoneNumber"
+							name="password"
 							control={control}
 							rules={{
 								required: true,
@@ -109,11 +114,12 @@ const LoginForm = () => {
 							render={({ field: { onChange, value }, fieldState: { error } }) => (
 								<TextField
 									fullWidth
+									type="password"
 									error={!!error}
 									helperText={error ? t('validations.required') : null}
 									onChange={onChange}
 									value={value || ''}
-									label={t('login.phone_number')}
+									label={t('login.password')}
 									disabled={verifyLogin}
 								/>
 							)}
@@ -133,7 +139,7 @@ const LoginForm = () => {
 										helperText={error ? t('validations.required') : null}
 										onChange={onChange}
 										value={value || ''}
-										label={t('login.phone_number')}
+										label={t('login.verification_code')}
 										// disabled={props.isFirstStepComplete}
 									/>
 								)}
