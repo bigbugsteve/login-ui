@@ -14,7 +14,7 @@ type Auth = {
 
 export interface ErrorType {
 	dictionaryObject: string;
-	error: number;
+	errorCode: number;
 }
 
 interface RootState {

@@ -1,14 +1,14 @@
 import { Box, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import LoginForm from '../login/components/LoginForm';
 import { Link } from 'react-router-dom';
-import LoginForm from './components/LoginForm';
+import { useTranslation } from 'react-i18next';
 
-const Login = () => {
+const Home = () => {
 	const { t } = useTranslation('common');
 	return (
 		<Box
-			className="login__page"
+			className="home__page"
 			sx={{
 				position: 'relative',
 				height: '100%',
@@ -22,7 +22,7 @@ const Login = () => {
 				<Grid
 					container
 					className={`login__wrapper 
-          `}
+  `}
 					sx={{
 						borderRadius: '35px',
 						backgroundColor: 'rgba(255, 255, 255, .9)',
@@ -48,7 +48,7 @@ const Login = () => {
 						}}
 					>
 						<Typography variant="h2" sx={{ margin: '1rem', fontSize: '1.5rem' }}>
-							{t('login.title')}
+							{t('home.title')}
 						</Typography>
 
 						<Box
@@ -114,4 +114,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Home;

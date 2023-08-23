@@ -24,7 +24,14 @@ export function* performLogin(data: Record<'val', Partial<Inputs>>) {
 		if (response.ok) {
 			yield put({ type: VERIFICATION_IN_PROGRESS, val: true });
 		} else {
-			throw new Error(`${response?.status} Something went wrong...`);
+			yield put({
+				type: 'SET_ERROR_OBJECT',
+				val: {
+					dictionaryObject: 'login_errors',
+					errorCode: response?.status,
+				},
+			});
+			// throw new Error(`${response?.status} Something went wrong...`);
 		}
 	} catch (error) {
 		console.log('file: actions.ts:31 ~ function*performLogin ~ error:', error);
@@ -44,14 +51,15 @@ export function* verifyCode(data: Record<'val', Partial<Inputs>>) {
 
 		if (response.ok) {
 			const token = response.headers.get('Authorization');
+
 			sessionStorage.setItem('token', token as string);
 			yield put({ type: SIGNED_IN, val: true });
 		} else if (response.status === 401) {
 			yield put({
 				type: 'SET_ERROR_OBJECT',
 				val: {
-					dictionaryObject: 'verify_errors',
-					errCode: response?.status,
+					dictionaryObject: 'login_errors',
+					errorCode: response?.status,
 				},
 			});
 			yield put({ type: SIGNED_IN, val: false });
@@ -59,8 +67,8 @@ export function* verifyCode(data: Record<'val', Partial<Inputs>>) {
 			yield put({
 				type: 'SET_ERROR_OBJECT',
 				val: {
-					dictionaryObject: 'verify_errors',
-					errCode: response?.status,
+					dictionaryObject: 'login_errors',
+					errorCode: response?.status,
 				},
 			});
 			throw new Error(`${response?.status} Something went wrong...`);

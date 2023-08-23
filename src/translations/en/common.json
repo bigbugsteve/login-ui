@@ -10,6 +10,9 @@
         "verification_code": "Verification code",
         "code_expires": "Code expires"
     },
+    "home": {
+        "title": "Home"
+    },
     "contact": {
         "contact_info": "Contact info",
         "back": "back",
@@ -17,5 +20,21 @@
     },
     "validations": {
         "required": "This field is required"
+    },
+    "error_handling": {
+        "success": "Success",
+        "warning": "Warning",
+        "error": "Error"
+    },
+    "login_errors": {
+        "SUCCESS": "Your request is successfully completed",
+        "BAD_REQUEST": "The server can't execute your request for some reason",
+        "UNAUTHORIZED": "Bad credentials",
+        "SESSION_EXPIRED": "Your session expired",
+        "FORBIDDEN": "You are unathurized user",
+        "PRECONDITIONAL_FAILED": "The server can't execute your request for some reason",
+        "INTERNAL_SERVER_ERROR": "The server can't execute your request for some reason",
+        "NO_CONNECTION": "The service is currently unavailable",
+        "undefined": "The service is currently unavailable"
     }
 }

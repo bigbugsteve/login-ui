@@ -19,6 +19,7 @@ export type Inputs = {
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const LoginForm = () => {
 	const [counterElement, setCounterElement] = useState<Array<JSX.Element>>();
+
 	const verifyLogin = useSelector((state: RootState) => state?.auth?.verifyLogin);
 
 	const signedIn = useSelector((state: RootState) => state?.auth?.signedIn);

@@ -4,6 +4,7 @@ import Layout from '../layout';
 import Login from '../pages/login';
 import Contact from '../pages/contact';
 import ErrorHandling from '../layout/ErrorHandling';
+import Home from '../pages/home';
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -15,7 +16,8 @@ export const router = createBrowserRouter(
 				</ErrorHandling>
 			}
 		>
-			<Route path="" element={<Login />} />
+			<Route path="/" element={<Login />} />
+			<Route path="/home" element={<Home />} />
 			<Route path="contact" element={<Contact />} />
 		</Route>,
 	),

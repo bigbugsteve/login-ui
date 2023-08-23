@@ -15,14 +15,14 @@ const ErrorHandling: React.FC<ErrorHandlingProps> = ({ children }) => {
 	console.log('file: ErrorHandling.tsx:15 ~ errorObject:', errorObject);
 
 	const dispatchStore = useDispatch();
-	const { t } = useTranslation();
+	const { t } = useTranslation('common');
 
 	const errorHandling = (errorObject: ErrorType) => {
 		let appearance: NOTIFICATION_TYPE = 'warning';
 		let title = 'test';
 		let target = 'test';
 
-		switch (errorObject?.error) {
+		switch (errorObject?.errorCode) {
 			case 200:
 				appearance = 'success';
 				title = t('error_handling.success');
@@ -35,7 +35,8 @@ const ErrorHandling: React.FC<ErrorHandlingProps> = ({ children }) => {
 				appearance = 'danger';
 				title = t('error_handling.error');
 		}
-		target = t(`${errorObject?.dictionaryObject}.${handleGeneralError(GeneralErrors, errorObject?.error)}`);
+		console.log('file: ErrorHandling.tsx:40 ~ errorHandling ~ errorObject:', title);
+		target = t(`${errorObject?.dictionaryObject}.${handleGeneralError(GeneralErrors, errorObject?.errorCode)}`);
 
 		setNotification(title, target, appearance);
 		dispatchStore({ type: 'SET_ERROR_OBJECT', val: null });
@@ -46,7 +47,6 @@ const ErrorHandling: React.FC<ErrorHandlingProps> = ({ children }) => {
 			errorHandling(errorObject);
 		}
 	}, [errorObject]);
-
 	return (
 		<>
 			<ReactNotifications />
