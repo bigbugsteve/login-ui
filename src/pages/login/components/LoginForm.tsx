@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Countdown from 'react-countdown';
 import { Box, Button, Grid, TextField } from '@mui/material';
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import RootState from '../../../interfaces/RootState';
 import { PERFORM_LOGIN, VERIFICATION_IN_PROGRESS, VERIFY_CODE } from '../../../redux/auth/actions';
+import { SET_LOADING } from '../../../redux/ui/actions';
 // import { SIGNED_IN, VERIFICATION_IN_PROGRESS } from '@src/redux/auth/actions';
 
 export type Inputs = {
@@ -18,13 +19,13 @@ export type Inputs = {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const LoginForm = () => {
-	const [counterElement, setCounterElement] = useState<Array<JSX.Element>>();
+	const [counterElement, setCounterElement] = useState<Array<JSX.Element> | null>(null);
 
 	const verifyLogin = useSelector((state: RootState) => state?.auth?.verifyLogin);
 
 	const signedIn = useSelector((state: RootState) => state?.auth?.signedIn);
 
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	const dispatchAction = useDispatch();
 	const { t } = useTranslation('common');
 
@@ -46,15 +47,20 @@ const LoginForm = () => {
 		dispatchAction({ type: PERFORM_LOGIN, val: data });
 	};
 
-	const securityExpired = useCallback(() => {
+	const securityExpired = () => {
 		dispatchAction({ type: VERIFICATION_IN_PROGRESS, val: false });
 		reset();
-	}, []);
+	};
 
 	useEffect(() => {
 		if (signedIn === true) {
-			// navigate('/contact');
+			dispatchAction({ type: SET_LOADING, val: true });
+			setTimeout(() => {
+				dispatchAction({ type: SET_LOADING, val: false });
+				navigate('/home');
+			}, 500);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [signedIn]);
 
 	useEffect(() => {

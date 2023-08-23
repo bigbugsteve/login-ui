@@ -1,11 +1,23 @@
-import { Box, CardMedia, Grid, Typography } from '@mui/material';
+import { Box, Button, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
-import LoginForm from '../login/components/LoginForm';
-import { Link } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { LOG_OUT } from '../../redux/auth/actions';
+import { SET_LOADING } from '../../redux/ui/actions';
 
 const Home = () => {
 	const { t } = useTranslation('common');
+	const dispatchAction = useDispatch();
+	const navigate = useNavigate();
+	const logout = () => {
+		dispatchAction({ type: SET_LOADING, val: true });
+		setTimeout(() => {
+			dispatchAction({ type: LOG_OUT });
+			navigate('/');
+		}, 500);
+	};
 	return (
 		<Box
 			className="home__page"
@@ -21,13 +33,11 @@ const Home = () => {
 			<Box>
 				<Grid
 					container
-					className={`login__wrapper 
-  `}
+					className={`login__wrapper`}
 					sx={{
 						borderRadius: '35px',
 						backgroundColor: 'rgba(255, 255, 255, .9)',
 						boxShadow: '10px 10px 10px rgba(0,0,0,.1)',
-						height: '500px',
 						width: '80%',
 						maxWidth: '1000px',
 						margin: 'auto',
@@ -38,40 +48,43 @@ const Home = () => {
 					<Grid
 						item
 						xs={12}
-						md={6}
 						sx={{
 							padding: '1rem',
-							display: { xs: 'none', md: 'flex' },
+							display: 'flex',
 							position: 'relative',
-							flexDirection: 'column',
 							justifyContent: 'space-between',
 						}}
 					>
 						<Typography variant="h2" sx={{ margin: '1rem', fontSize: '1.5rem' }}>
 							{t('home.title')}
 						</Typography>
-
+						<Button sx={{ margin: '1rem', fontSize: '1.5rem' }} onClick={logout}>
+							<LogoutIcon />
+						</Button>
+					</Grid>
+					<Grid item xs={12}>
 						<Box
 							sx={{
 								position: 'relative',
 								alignSelf: 'center',
 								borderRadius: '50%',
+								height: '100%',
 							}}
 						>
 							<CardMedia
 								sx={{
-									maxHeight: 'auto',
-									width: '100%',
-									maxWidth: '90%',
 									margin: 'auto',
 									objectFit: 'contain',
+									height: '300px',
+									maxHeight: '70%',
 								}}
 								component="img"
 								alt="benefit hub"
-								height="100%"
-								image="../img/connection.svg"
+								image="../img/home_page.svg"
 							/>
 						</Box>
+					</Grid>
+					<Grid item xs={12} sx={{ padding: '1rem' }}>
 						<Typography
 							variant="subtitle2"
 							sx={[
@@ -86,7 +99,8 @@ const Home = () => {
 							<Link to={'/contact'}>{t('login.contact')}</Link>
 						</Typography>
 					</Grid>
-					<Grid
+
+					{/* <Grid
 						item
 						xs={12}
 						md={6}
@@ -98,16 +112,9 @@ const Home = () => {
 							display: 'flex',
 							flexDirection: 'column',
 							justifyContent: 'space-between',
+							alignItems: 'end',
 						}}
-					>
-						<Typography variant="h2" sx={{ margin: '1rem', fontSize: '1.5rem' }}>
-							{t('login.subtitle')}
-						</Typography>
-						<Box sx={{ justifySelf: 'center' }}>
-							<LoginForm />
-						</Box>
-						<Box></Box>
-					</Grid>
+					></Grid> */}
 				</Grid>
 			</Box>
 		</Box>

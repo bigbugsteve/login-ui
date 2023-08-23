@@ -10,7 +10,7 @@ export const SIGNED_IN = 'SIGNED_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const VERIFICATION_IN_PROGRESS = 'VERIFICATION_IN_PROGRESS';
 
-export function* performLogin(data: Record<'val', Partial<Inputs>>) {
+export function* performLogin(data: { type: string; val: Partial<Inputs> }) {
 	yield put({ type: SET_LOADING, val: true });
 
 	const { val: payload } = data;
@@ -31,16 +31,22 @@ export function* performLogin(data: Record<'val', Partial<Inputs>>) {
 					errorCode: response?.status,
 				},
 			});
-			// throw new Error(`${response?.status} Something went wrong...`);
+			throw new Error(`${response?.status} Something went wrong...`);
 		}
 	} catch (error) {
-		console.log('file: actions.ts:31 ~ function*performLogin ~ error:', error);
+		yield put({
+			type: 'SET_ERROR_OBJECT',
+			val: {
+				dictionaryObject: 'login_errors',
+				errorCode: 500,
+			},
+		});
 	}
 
 	yield put({ type: SET_LOADING, val: false });
 }
 
-export function* verifyCode(data: Record<'val', Partial<Inputs>>) {
+export function* verifyCode(data: { type: string; val: Partial<Inputs> }) {
 	yield put({ type: SET_LOADING, val: true });
 	const { val: payload } = data;
 	try {
@@ -51,6 +57,7 @@ export function* verifyCode(data: Record<'val', Partial<Inputs>>) {
 
 		if (response.ok) {
 			const token = response.headers.get('Authorization');
+			yield put({ type: VERIFICATION_IN_PROGRESS, val: false });
 
 			sessionStorage.setItem('token', token as string);
 			yield put({ type: SIGNED_IN, val: true });
@@ -74,13 +81,20 @@ export function* verifyCode(data: Record<'val', Partial<Inputs>>) {
 			throw new Error(`${response?.status} Something went wrong...`);
 		}
 	} catch (error) {
-		console.log('file: actions.ts:56 ~ function*verifyCode ~ error:', error);
+		yield put({
+			type: 'SET_ERROR_OBJECT',
+			val: {
+				dictionaryObject: 'login_errors',
+				errorCode: 500,
+			},
+		});
 	}
 	yield put({ type: SET_LOADING, val: false });
 }
 
 export function* logout() {
 	yield put({ type: SET_LOADING, val: true });
+	yield put({ type: SIGNED_IN, val: false });
 	sessionStorage.clear();
 	yield put({ type: SET_LOADING, val: false });
 }

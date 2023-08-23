@@ -18,6 +18,9 @@
         "back": "back",
         "email": "Email"
     },
+    "common": {
+        "please_wait": "Please wait"
+    },
     "validations": {
         "required": "This field is required"
     },

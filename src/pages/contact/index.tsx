@@ -1,12 +1,19 @@
 import { Box, Button, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import RootState from '../../interfaces/RootState';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Contact = () => {
 	const { t } = useTranslation('common');
-
+	const signedIn = useSelector((state: RootState) => state?.auth?.signedIn);
+	const navigate = useNavigate();
+	const handleBack = () => {
+		if (signedIn) navigate('/home');
+		else navigate('/');
+	};
 	return (
 		<Box sx={{ display: 'flex', height: '100vh', alignItems: 'center' }}>
 			<Grid
@@ -24,8 +31,8 @@ const Contact = () => {
 					position: 'relative',
 				}}
 			>
-				<Grid item md={5} sx={{ display: { xs: 'none', md: 'block', padding: '2rem' } }}>
-					<Typography component="h1" variant="h5">
+				<Grid item md={5} sx={{ display: 'block', padding: '2rem' }}>
+					<Typography component="h1" variant="h5" sx={{ marginBottom: { xs: '2rem', md: '0' } }}>
 						{t('contact.contact_info')}
 					</Typography>
 					<CardMedia
@@ -51,7 +58,7 @@ const Contact = () => {
 						display: 'flex',
 						flexDirection: 'column',
 						justifyContent: 'space-between',
-						height: '100%',
+						height: { xs: 'auto', md: '100%' },
 						padding: '2rem 0',
 					}}
 				>
@@ -61,12 +68,10 @@ const Contact = () => {
 						<Link to="mailto:anagybogar@gmail.com">anagybogar@gmail.com</Link>
 					</Box>
 
-					<Grid item sx={{ width: '50%', margin: '0.5rem auto' }}>
-						<Link to="/">
-							<Button className="btn__primary btn btn-primary" fullWidth type="submit">
-								{t('contact.back')}
-							</Button>
-						</Link>
+					<Grid item sx={{ width: '50%', margin: { xs: '2rem auto 0 auto', md: '0.5rem auto' } }}>
+						<Button className="btn__primary btn btn-primary" fullWidth type="button" onClick={handleBack}>
+							{t('contact.back')}
+						</Button>
 					</Grid>
 				</Grid>
 			</Grid>
