@@ -21,6 +21,7 @@ Clone this repository, install the dependencies and launch the application
 
     .
     ├── dist                    # Compiled files 
+    ├── public                  # Fonts & images 
     └── src                     # Source files
         ├── api                 # API servuce
         ├── app                 # Main application & router
