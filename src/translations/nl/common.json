@@ -1,1 +1,44 @@
-{}
+{
+    "login": {
+        "title": "Inlogscherm",
+        "subtitle": "Log in op uw account",
+        "contact": "Contact",
+        "login": "Inloggen",
+        "email_address": "E-mailadres",
+        "password": "Wachtwoord",
+        "phone_number": "Telefoonnummer",
+        "verification_code": "Verificatiecode",
+        "code_expires": "Code verloopt"
+    },
+    "home": {
+        "title": "Startpagina"
+    },
+    "contact": {
+        "contact_info": "Contactgegevens",
+        "back": "Terug",
+        "email": "E-mail"
+    },
+    "common": {
+        "language": "Taal",
+        "please_wait": "Even geduld aub"
+    },
+    "validations": {
+        "required": "Dit veld is verplicht"
+    },
+    "error_handling": {
+        "success": "Succes",
+        "warning": "Waarschuwing",
+        "error": "Fout"
+    },
+    "login_errors": {
+        "SUCCESS": "Uw verzoek is succesvol voltooid",
+        "BAD_REQUEST": "De server kan uw verzoek om een of andere reden niet uitvoeren",
+        "UNAUTHORIZED": "Ongeldige inloggegevens",
+        "SESSION_EXPIRED": "Uw sessie is verlopen",
+        "FORBIDDEN": "U bent een ongeautoriseerde gebruiker",
+        "PRECONDITIONAL_FAILED": "De server kan uw verzoek om een of andere reden niet uitvoeren",
+        "INTERNAL_SERVER_ERROR": "De server kan uw verzoek om een of andere reden niet uitvoeren",
+        "NO_CONNECTION": "De dienst is momenteel niet beschikbaar",
+        "undefined": "De dienst is momenteel niet beschikbaar"
+    }
+}

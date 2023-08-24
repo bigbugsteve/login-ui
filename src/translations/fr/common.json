@@ -1,1 +1,44 @@
-{}
+{
+    "login": {
+        "title": "Écran de connexion",
+        "subtitle": "Connectez-vous à votre compte",
+        "contact": "Contact",
+        "login": "Connexion",
+        "email_address": "Adresse électronique",
+        "password": "Mot de passe",
+        "phone_number": "Numéro de téléphone",
+        "verification_code": "Code de vérification",
+        "code_expires": "Le code expire"
+    },
+    "home": {
+        "title": "Accueil"
+    },
+    "contact": {
+        "contact_info": "Contact info",
+        "back": "Retour",
+        "email": "Courriel"
+    },
+    "common": {
+        "language": "Langue",
+        "please_wait": "Veuillez patienter"
+    },
+    "validations": {
+        "required": "Ce champ est obligatoire"
+    },
+    "error_handling": {
+        "success": "Succès",
+        "warning": "Avertissement",
+        "error": "Erreur"
+    },
+    "login_errors": {
+        "SUCCESS": "Votre demande a été traitée avec succès",
+        "BAD_REQUEST": "Le serveur ne peut pas exécuter votre demande pour une raison quelconque.",
+        "UNAUTHORIZED": "Mauvaises références",
+        "SESSION_EXPIRED": "Votre session a expiré",
+        "FORBIDDEN": "Vous êtes un utilisateur non stérilisé",
+        "PRECONDITIONAL_FAILED": "Le serveur ne peut pas exécuter votre demande pour une raison quelconque.",
+        "INTERNAL_SERVER_ERROR": "Le serveur ne peut pas exécuter votre demande pour une raison quelconque.",
+        "NO_CONNECTION": "Le service est actuellement indisponible",
+        "undefined": "Le service est actuellement indisponible"
+    }
+}

@@ -4,7 +4,7 @@ const lang = localStorage.getItem('language');
 
 export const config = {
 	interpolation: {
-		escapeValue: false, // React already does escaping
+		escapeValue: false,
 	},
 	lng: lang ?? 'en',
 	resources,
