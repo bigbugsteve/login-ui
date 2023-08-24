@@ -14,4 +14,23 @@ Clone this repository, install the dependencies and launch the application
    "git clone https://github.com/bigbugsteve/login-ui.git"
    "cd login-ui"
    "npm install"
+   "npm run dev"
   ```
+
+### A typical top-level directory layout
+
+    .
+    ├── build                   # 
+    ├── docs                    # 
+    ├── src                     # 
+    │   ├── api                 # 
+    │   ├── app                 # 
+    │   ├── components          # 
+    │   ├── interfaces          # 
+    │   ├── layout              # 
+    │   ├── lib                 # 
+    │   ├── mocks               # 
+    │   ├── pages               # 
+    │   ├── redux               # 
+    │   ├── styles              # 
+    │   └── translations        # 

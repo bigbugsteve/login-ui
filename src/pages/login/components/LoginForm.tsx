@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Countdown from 'react-countdown';
 import { Box, Button, Grid, TextField } from '@mui/material';

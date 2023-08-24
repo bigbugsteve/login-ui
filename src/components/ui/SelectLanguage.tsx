@@ -1,8 +1,7 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { FormControl, InputLabel, MenuItem, Select, ThemeProvider } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, ThemeProvider } from '@mui/material';
 import { theme } from './theme';
 import RootState from '../../interfaces/RootState';
 import { SET_LANGUAGE } from '../../redux/ui/actions';
@@ -20,7 +19,7 @@ const SelectLanguage = () => {
 	// const language = currentLng ? currentLng : 'en';
 	const { t } = useTranslation('common');
 
-	const changeLng = (e) => {
+	const changeLng = (e: SelectChangeEvent<string>) => {
 		dispatchAction({ type: SET_LANGUAGE, val: e.target.value });
 		i18n.changeLanguage(e.target.value);
 	};
