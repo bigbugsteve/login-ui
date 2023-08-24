@@ -17,20 +17,19 @@ Clone this repository, install the dependencies and launch the application
    "npm run dev"
   ```
 
-### A typical top-level directory layout
+### Folder structure
 
     .
-    ├── build                   # 
-    ├── docs                    # 
-    ├── src                     # 
-    │   ├── api                 # 
-    │   ├── app                 # 
-    │   ├── components          # 
-    │   ├── interfaces          # 
-    │   ├── layout              # 
-    │   ├── lib                 # 
-    │   ├── mocks               # 
-    │   ├── pages               # 
-    │   ├── redux               # 
-    │   ├── styles              # 
-    │   └── translations        # 
+    ├── dist                    # Compiled files 
+    ├── src                     # Source files
+    │   ├── api                 # API servuce
+    │   ├── app                 # Main application & router
+    │   ├── components          # Reusable components
+    │   ├── interfaces          # Type definitions
+    │   ├── layout              # Layout
+    │   ├── lib                 # Utilities
+    │   ├── mocks               # Mock service
+    │   ├── pages               # Pages
+    │   ├── redux               # State management
+    │   ├── styles              # Styling
+    │   └── translations        # Internationalization
