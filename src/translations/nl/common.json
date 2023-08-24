@@ -19,6 +19,8 @@
         "email": "E-mail"
     },
     "common": {
+        "home": "Home",
+        "not_found": "Pagina niet gevonden",
         "language": "Taal",
         "please_wait": "Even geduld aub"
     },

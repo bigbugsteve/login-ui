@@ -53,4 +53,4 @@ const ErrorHandling: React.FC<ErrorHandlingProps> = ({ children }) => {
 	);
 };
 
-export default React.memo(ErrorHandling);
+export default ErrorHandling;

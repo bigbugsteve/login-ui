@@ -78,7 +78,7 @@ const Home = () => {
 									maxHeight: '70%',
 								}}
 								component="img"
-								alt="benefit hub"
+								alt="home page image"
 								image="../img/home_page.svg"
 							/>
 						</Box>

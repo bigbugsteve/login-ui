@@ -5,6 +5,7 @@ import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, ThemeProv
 import { theme } from './theme';
 import RootState from '../../interfaces/RootState';
 import { SET_LANGUAGE } from '../../redux/ui/actions';
+import React from 'react';
 
 const SelectLanguage = () => {
 	const languageList = [

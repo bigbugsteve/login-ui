@@ -21,8 +21,8 @@ const LoginForm = () => {
 	const [counterElement, setCounterElement] = useState<Array<JSX.Element> | null>(null);
 
 	const verifyLogin = useSelector((state: RootState) => state?.auth?.verifyLogin);
-
 	const signedIn = useSelector((state: RootState) => state?.auth?.signedIn);
+	const verificationCode = useSelector((state: RootState) => state?.auth?.verificationCode);
 
 	const navigate = useNavigate();
 	const dispatchAction = useDispatch();
@@ -80,6 +80,11 @@ const LoginForm = () => {
 		setValue('emailAddress', 'johndoe@example.com');
 		setValue('password', '123456');
 	}, []);
+	useEffect(() => {
+		if (verificationCode) {
+			setValue('verificationCode', verificationCode);
+		}
+	}, [verificationCode]);
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<Box sx={{ display: 'flex' }}>

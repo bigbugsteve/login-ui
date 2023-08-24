@@ -2,13 +2,14 @@ import { Route, createBrowserRouter, createRoutesFromElements } from 'react-rout
 import Layout from '../layout';
 
 // import Login from '../pages/login';
-import Contact from '../pages/contact';
-import ErrorHandling from '../layout/ErrorHandling';
 import Home from '../pages/home';
 import LoadingScreen from '../components/ui/Loader';
 import React, { lazy } from 'react';
 
 const Login = lazy(() => import('../pages/login'));
+const ErrorHandling = lazy(() => import('../layout/ErrorHandling'));
+const Contact = lazy(() => import('../pages/contact'));
+const NotFound = lazy(() => import('../pages/notfound'));
 export const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route
@@ -40,6 +41,14 @@ export const router = createBrowserRouter(
 				element={
 					<React.Suspense fallback={<LoadingScreen />}>
 						<Contact />
+					</React.Suspense>
+				}
+			/>
+			<Route
+				path="*"
+				element={
+					<React.Suspense fallback={<LoadingScreen />}>
+						<NotFound />
 					</React.Suspense>
 				}
 			/>

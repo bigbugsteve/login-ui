@@ -43,7 +43,7 @@ const Contact = () => {
 							objectFit: 'contain',
 						}}
 						component="img"
-						alt="benefit hub"
+						alt="contact us image"
 						height="100%"
 						image="../img/contact_us.svg"
 					/>

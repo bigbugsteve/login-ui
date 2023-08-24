@@ -19,6 +19,8 @@
         "email": "Courriel"
     },
     "common": {
+        "home": "Accueil",
+        "not_found": "Page non trouvée",
         "language": "Langue",
         "please_wait": "Veuillez patienter"
     },

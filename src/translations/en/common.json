@@ -19,6 +19,8 @@
         "email": "Email"
     },
     "common": {
+        "home": "Home",
+        "not_found": "Page not found",
         "language": "Language",
         "please_wait": "Please wait"
     },

@@ -1,14 +1,13 @@
 import { put } from 'redux-saga/effects';
 import { SET_LOADING } from '../ui/actions';
-// import Service from '../../api/api';
 import { Inputs } from '../../pages/login/components/LoginForm';
-// import { useContext } from 'react';
 
 export const PERFORM_LOGIN = 'PERFORM_LOGIN';
 export const VERIFY_CODE = 'VERIFY_CODE';
 export const SIGNED_IN = 'SIGNED_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const VERIFICATION_IN_PROGRESS = 'VERIFICATION_IN_PROGRESS';
+export const SET_VERIFICATION_CODE = 'SET_VERIFICATION_CODE';
 
 export function* performLogin(data: { type: string; val: Partial<Inputs> }) {
 	yield put({ type: SET_LOADING, val: true });
@@ -20,8 +19,12 @@ export function* performLogin(data: { type: string; val: Partial<Inputs> }) {
 			method: 'POST',
 			body: JSON.stringify(payload),
 		});
+		console.log('file: actions.ts:22 ~ function*performLogin ~ response:', response);
+
+		const responseData: string = yield response.json();
 
 		if (response.ok) {
+			yield put({ type: SET_VERIFICATION_CODE, val: responseData });
 			yield put({ type: VERIFICATION_IN_PROGRESS, val: true });
 		} else {
 			yield put({

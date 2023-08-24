@@ -10,6 +10,7 @@ export type SelectList = Array<SelectListItem>;
 type Auth = {
 	signedIn: boolean;
 	verifyLogin: boolean;
+	verificationCode: string;
 };
 
 export interface ErrorType {

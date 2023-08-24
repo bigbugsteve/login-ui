@@ -66,7 +66,7 @@ const Login = () => {
 									objectFit: 'contain',
 								}}
 								component="img"
-								alt="benefit hub"
+								alt="login image"
 								height="100%"
 								image="../img/connection.svg"
 							/>
