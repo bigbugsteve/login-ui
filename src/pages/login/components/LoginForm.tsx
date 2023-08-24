@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import RootState from '../../../interfaces/RootState';
 import { PERFORM_LOGIN, VERIFICATION_IN_PROGRESS, VERIFY_CODE } from '../../../redux/auth/actions';
 import { SET_LOADING } from '../../../redux/ui/actions';
-// import { SIGNED_IN, VERIFICATION_IN_PROGRESS } from '@src/redux/auth/actions';
 
 export type Inputs = {
 	emailAddress: string;
@@ -41,7 +40,6 @@ const LoginForm = () => {
 	};
 	const performVerification = (data: Inputs) => {
 		dispatchAction({ type: VERIFY_CODE, val: data });
-		console.log('file: LoginForm.tsx:39 ~ performVerification ~ data:', data);
 	};
 	const performLogin = (data: Omit<Inputs, 'verificationCode'>) => {
 		dispatchAction({ type: PERFORM_LOGIN, val: data });
@@ -77,8 +75,6 @@ const LoginForm = () => {
 			]);
 		}
 	}, [verifyLogin]);
-	// 444141962
-	// gabor.nagy@ewmgroup.com
 
 	useEffect(() => {
 		setValue('emailAddress', 'johndoe@example.com');
