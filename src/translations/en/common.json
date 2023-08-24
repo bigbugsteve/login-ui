@@ -19,6 +19,7 @@
         "email": "Email"
     },
     "common": {
+        "language": "Language",
         "please_wait": "Please wait"
     },
     "validations": {

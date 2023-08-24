@@ -30,8 +30,3 @@ if (import.meta.env.MODE === 'development') {
 		</>,
 	);
 }
-// ReactDOM.createRoot(document.getElementById('root')!).render(
-// 	<>
-// 		<App />
-// 	</>,
-// );

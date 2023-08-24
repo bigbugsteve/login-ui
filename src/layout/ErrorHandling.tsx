@@ -12,7 +12,6 @@ interface ErrorHandlingProps {
 
 const ErrorHandling: React.FC<ErrorHandlingProps> = ({ children }) => {
 	const errorObject = useSelector((state: RootState) => state.error.errorObject);
-	console.log('file: ErrorHandling.tsx:15 ~ errorObject:', errorObject);
 
 	const dispatchStore = useDispatch();
 	const { t } = useTranslation('common');
@@ -35,7 +34,6 @@ const ErrorHandling: React.FC<ErrorHandlingProps> = ({ children }) => {
 				appearance = 'danger';
 				title = t('error_handling.error');
 		}
-		console.log('file: ErrorHandling.tsx:40 ~ errorHandling ~ errorObject:', title);
 		target = t(`${errorObject?.dictionaryObject}.${handleGeneralError(GeneralErrors, errorObject?.errorCode)}`);
 
 		setNotification(title, target, appearance);

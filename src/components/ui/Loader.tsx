@@ -15,7 +15,6 @@ const LoadingScreen: React.FC = () => {
 	/* VARIABLES */
 	const { t } = useTranslation('common');
 	const isLoading = useSelector((state: RootState) => state.ui.isLoading);
-	console.log('file: Loader.tsx:18 ~ isLoading:', isLoading);
 
 	/* FUNCTIONS */
 	const content = (
