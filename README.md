@@ -21,15 +21,16 @@ Clone this repository, install the dependencies and launch the application
 
     .
     ├── dist                    # Compiled files 
-    ├── src                     # Source files
-    │   ├── api                 # API servuce
-    │   ├── app                 # Main application & router
-    │   ├── components          # Reusable components
-    │   ├── interfaces          # Type definitions
-    │   ├── layout              # Layout
-    │   ├── lib                 # Utilities
-    │   ├── mocks               # Mock service
-    │   ├── pages               # Pages
-    │   ├── redux               # State management
-    │   ├── styles              # Styling
-    │   └── translations        # Internationalization
+    └── src                     # Source files
+        ├── api                 # API servuce
+        ├── app                 # Main application & router
+        ├── components          # Reusable components
+        ├── interfaces          # Type definitions
+        ├── layout              # Layout
+        ├── lib                 # Utilities
+        ├── mocks               # Mock service
+        ├── pages               # Pages
+        ├── redux               # State management
+        ├── styles              # Styling
+        └── translations        # Internationalization
+    
