@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 import RootState from '../interfaces/RootState';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

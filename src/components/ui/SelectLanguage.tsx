@@ -5,7 +5,6 @@ import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, ThemeProv
 import { theme } from './theme';
 import RootState from '../../interfaces/RootState';
 import { SET_LANGUAGE } from '../../redux/ui/actions';
-import React from 'react';
 
 const SelectLanguage = () => {
 	const languageList = [
@@ -17,15 +16,12 @@ const SelectLanguage = () => {
 	const currentLng = useSelector((state: RootState) => state?.ui?.language);
 
 	const { i18n } = useTranslation('common');
-	// const language = currentLng ? currentLng : 'en';
 	const { t } = useTranslation('common');
 
 	const changeLng = (e: SelectChangeEvent<string>) => {
 		dispatchAction({ type: SET_LANGUAGE, val: e.target.value });
 		i18n.changeLanguage(e.target.value);
 	};
-
-	// console.log(languageList.find((item) => item.value === currentLng));
 
 	return (
 		<ThemeProvider theme={theme}>
