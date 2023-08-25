@@ -19,10 +19,8 @@ export function* performLogin(data: { type: string; val: Partial<Inputs> }) {
 			method: 'POST',
 			body: JSON.stringify(payload),
 		});
-		console.log('file: actions.ts:22 ~ function*performLogin ~ response:', response);
 
 		const responseData: string = yield response.json();
-
 		if (response.ok) {
 			yield put({ type: SET_VERIFICATION_CODE, val: responseData });
 			yield put({ type: VERIFICATION_IN_PROGRESS, val: true });

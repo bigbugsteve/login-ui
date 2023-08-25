@@ -5,6 +5,7 @@ import Layout from '../layout';
 import Home from '../pages/home';
 import LoadingScreen from '../components/ui/Loader';
 import React, { lazy } from 'react';
+import ProtectedRoute from '../layout/ProtectedRoute';
 
 const Login = lazy(() => import('../pages/login'));
 const ErrorHandling = lazy(() => import('../layout/ErrorHandling'));
@@ -32,7 +33,9 @@ export const router = createBrowserRouter(
 				path="/home"
 				element={
 					<React.Suspense fallback={<LoadingScreen />}>
-						<Home />
+						<ProtectedRoute>
+							<Home />
+						</ProtectedRoute>
 					</React.Suspense>
 				}
 			/>
