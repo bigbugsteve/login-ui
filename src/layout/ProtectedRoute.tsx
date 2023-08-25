@@ -8,7 +8,6 @@ const ProtectedRoute = ({ children }: { children: ReactNode }) => {
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (!signedIn) {
-			console.log('not logged in...');
 			navigate('/');
 		}
 	});
