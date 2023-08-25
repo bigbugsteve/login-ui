@@ -57,4 +57,5 @@ export const router = createBrowserRouter(
 			/>
 		</Route>,
 	),
+	{ basename: import.meta.env.DEV ? '/' : '/login-ui/' },
 );
